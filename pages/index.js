@@ -8,8 +8,15 @@ export default class extends React.Component {
     this.state = {search: ''};
   }
 
-  updateSearch(search) {
+  async updateSearch(search) {
     this.setState({search});
+    const result = await fetch(
+      'https://rest.bandsintown.com/artists/' + search + '?app_id=asd',
+    );
+
+    const artist = await result.json();
+
+    this.setState({artist});
   }
 
   render() {
