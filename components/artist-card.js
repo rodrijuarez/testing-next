@@ -26,6 +26,10 @@ class ArtistCard extends React.Component {
   render() {
     const {classes, artist} = this.props;
 
+    const FacebookButton = artist.facebook_page_url ? (
+      <Button href={artist.facebook_page_url} target="_blank">Facebook</Button>
+    ) : null;
+
     return (
       <Card className={classes.card}>
         <CardMedia
@@ -42,6 +46,7 @@ class ArtistCard extends React.Component {
           <Button size="small" color="primary">
             Show events
           </Button>
+          {FacebookButton}
         </CardActions>
       </Card>
     );
