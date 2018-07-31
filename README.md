@@ -30,8 +30,9 @@ it'd also be required to have small testeable functions (which from the code you
 
 ## Why Next.js ?
 
-Next.js was used because was the tool that thought matched the best the stack that'd be used every day,
-material-ui was chosen because matters of time and the same goes for create-next-app for the generation
+Next.js was used because was the tool that thought matched the best the stack that'd be used every day (even if it's not
+the stack that I'm personally used to),
+material-ui was chosen because matters of time and the same goes for create-next-app for the generation (2 hours of development not including README :) )
 
 ## Questions? Feedback?
 
