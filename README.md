@@ -4,6 +4,8 @@ Find the most recent version of this guide at [here](https://github.com/segmenti
 
 ## Table of Contents
 
+- [Cypress and e2e](#cypress)
+- [Why Next.js](#why-next)
 - [Questions? Feedback?](#questions-feedback)
 - [Folder Structure](#folder-structure)
 - [Available Scripts](#available-scripts)
@@ -18,6 +20,18 @@ Find the most recent version of this guide at [here](https://github.com/segmenti
 - [Using the `static` Folder](#using-the-static-folder)
 - [Deploy to Now](#deploy-to-now)
 - [Something Missing?](#something-missing)
+
+## Cypress and e2e
+
+Cypress was the tool chosen to write tests for this demo, given the time available no unit tests were setup, for that
+it'd also be required to have small testeable functions (which from the code you'll see, there aren't many).  For running the test written in cypress after installing the dependencies just run:
+
+`./node_modules/.bin/cypress open`
+
+## Why Next.js ?
+
+Next.js was used because was the tool that thought matched the best the stack that'd be used every day,
+material-ui was chosen because matters of time and the same goes for create-next-app for the generation
 
 ## Questions? Feedback?
 

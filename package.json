@@ -7,9 +7,11 @@
   },
   "dependencies": {
     "@material-ui/core": "^1.4.2",
-    "cypress": "^3.0.3",
     "next": "6.1.1",
     "react": "16.4.1",
     "react-dom": "16.4.1"
+  },
+  "devDependencies": {
+    "cypress": "^3.0.3"
   }
 }
