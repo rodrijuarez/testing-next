@@ -10,17 +10,10 @@ export default class extends React.Component {
     const {value, onChange} = this.props;
 
     return (
-      <div className="artist-name">
         <TextField
           onChange={$event => onChange($event.target.value)}
           value={value}
         />
-        <style jsx>{`
-          .artist-name {
-            text-align: center;
-          }
-        `}</style>
-      </div>
     );
   }
 }

@@ -10,6 +10,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 const styles = {
   card: {
     maxWidth: 345,
+    margin: 'auto',
   },
   media: {
     height: 0,
@@ -26,25 +27,23 @@ class ArtistCard extends React.Component {
     const {classes, artist} = this.props;
 
     return (
-      <div className="artist-name">
-        <Card className={classes.card}>
-          <CardMedia
-            className={classes.media}
-            image={artist.thumb_url}
-            title={artist.name}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
-              {artist.name}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small" color="primary">
-              Show events
-            </Button>
-          </CardActions>
-        </Card>
-      </div>
+      <Card className={classes.card}>
+        <CardMedia
+          className={classes.media}
+          image={artist.thumb_url}
+          title={artist.name}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="headline" component="h2">
+            {artist.name}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small" color="primary">
+            Show events
+          </Button>
+        </CardActions>
+      </Card>
     );
   }
 }

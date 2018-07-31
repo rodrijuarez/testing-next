@@ -24,8 +24,27 @@ export default class extends React.Component {
     const {search, artist} = this.state;
     return (
       <div>
-        <ArtistSearch value={search} onChange={this.updateSearch.bind(this)} />
-        {artist ? <ArtistCard artist={artist} /> : null}
+        <div className="artist-name">
+          <ArtistSearch
+            value={search}
+            onChange={this.updateSearch.bind(this)}
+          />
+        </div>
+
+        {artist ? (
+          <div className="artist-card">
+            <ArtistCard artist={artist} />
+          </div>
+        ) : null}
+
+        <style jsx>{`
+          .artist-name {
+            text-align: center;
+          }
+          .artist-card {
+            margin-top: 1rem;
+          }
+        `}</style>
       </div>
     );
   }
