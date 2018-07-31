@@ -1,10 +1,23 @@
 import React from 'react';
 import ArtistSearch from '../components/artist-search';
 
-const Home = () => (
-  <div>
-	<ArtistSearch/>
-  </div>
-);
+export default class extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default Home;
+    this.state = {search: ''};
+  }
+
+  updateSearch(search) {
+    this.setState({search});
+  }
+
+  render() {
+    const {search} = this.state;
+    return (
+      <div>
+        <ArtistSearch value={search} onChange={this.updateSearch.bind(this)} />
+      </div>
+    );
+  }
+}

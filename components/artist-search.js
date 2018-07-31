@@ -4,21 +4,16 @@ import TextField from '@material-ui/core/TextField';
 export default class extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {search: ''};
-  }
-
-  updateSearch(search) {
-    this.setState({search});
   }
 
   render() {
-    const {search} = this.state;
+    const {value, onChange} = this.props;
 
     return (
       <div className="artist-name">
         <TextField
-          onChange={$event => this.updateSearch($event.target.value)}
-          value={search}
+          onChange={$event => onChange($event.target.value)}
+          value={value}
         />
         <style jsx>{`
           .artist-name {
