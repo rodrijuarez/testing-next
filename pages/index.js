@@ -14,6 +14,16 @@ export default class extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const artist = localStorage.getItem('artist');
+    const artistEvents = localStorage.getItem('artistEvents');
+
+    this.setState({
+      artist: artist ? JSON.parse(artist) : artist,
+      artistEvents: artistEvents ? JSON.parse(artistEvents) : [],
+    });
+  }
+
   async updateSearch(search) {
     this.setState({search});
     const result = await fetch(
@@ -23,6 +33,7 @@ export default class extends React.Component {
     const artist = await result.json();
 
     this.setState({artist});
+    localStorage.setItem('artist', JSON.stringify(artist));
   }
 
   async loadEvents() {
@@ -39,6 +50,7 @@ export default class extends React.Component {
     const artistEvents = (await result.json()) || [];
 
     this.setState({isLoadingEvents: false, artistEvents});
+    localStorage.setItem('artistEvents', JSON.stringify(artistEvents));
   }
 
   render() {
