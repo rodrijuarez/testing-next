@@ -32,8 +32,9 @@ export default class extends React.Component {
 
     const artist = await result.json();
 
-    this.setState({artist});
+    this.setState({artist, artistEvents: []});
     localStorage.setItem('artist', JSON.stringify(artist));
+    localStorage.setItem('artistEvents', JSON.stringify([]));
   }
 
   async loadEvents() {

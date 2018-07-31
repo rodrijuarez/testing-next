@@ -23,6 +23,19 @@ class ArtistCard extends React.Component {
     super(props);
   }
 
+  createEvent = event => {
+    const {venue, datetime} = event;
+
+    return (
+      <CardContent>
+        <Typography gutterBottom variant="headline" component="h2">
+          {venue.name} is going to happen in {venue.city},{venue.country} on the
+          date {new Date(datetime).toLocaleString()}
+        </Typography>
+      </CardContent>
+    );
+  };
+
   render() {
     const {
       classes,
@@ -38,18 +51,7 @@ class ArtistCard extends React.Component {
       </Button>
     ) : null;
 
-    const ArtistEvents = events.length
-      ? events.map(event => (
-          <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
-              {event.venue.name} is going to happen in {event.venue.city},{
-                event.venue.country
-              }{' '}
-              on the date {new Date(event.datetime).toLocaleString()}
-            </Typography>
-          </CardContent>
-        ))
-      : null;
+    const ArtistEvents = events.length ? events.map(this.createEvent) : null;
 
     const Events = isLoadingEvents ? (
       <CardContent>
