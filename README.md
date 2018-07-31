@@ -5,7 +5,7 @@ Find the most recent version of this guide at [here](https://github.com/segmenti
 ## Table of Contents
 
 - [Cypress and e2e](#cypress)
-- [Why Next.js](#why-next)
+- [Why Next.js](#why-next?)
 - [Questions? Feedback?](#questions-feedback)
 - [Folder Structure](#folder-structure)
 - [Available Scripts](#available-scripts)
@@ -21,14 +21,14 @@ Find the most recent version of this guide at [here](https://github.com/segmenti
 - [Deploy to Now](#deploy-to-now)
 - [Something Missing?](#something-missing)
 
-## Cypress and e2e
+## Cypress
 
 Cypress was the tool chosen to write tests for this demo, given the time available no unit tests were setup, for that
 it'd also be required to have small testeable functions (which from the code you'll see, there aren't many).  For running the test written in cypress after installing the dependencies just run:
 
 `./node_modules/.bin/cypress open`
 
-## Why Next.js ?
+## Why Next?
 
 Next.js was used because was the tool that thought matched the best the stack that'd be used every day (even if it's not
 the stack that I'm personally used to),
