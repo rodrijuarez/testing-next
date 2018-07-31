@@ -6,7 +6,12 @@ export default class extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {search: '', artist: null};
+    this.state = {
+      search: '',
+      artist: null,
+      isLoadingEvents: false,
+      artistEvents: [],
+    };
   }
 
   async updateSearch(search) {
@@ -20,8 +25,24 @@ export default class extends React.Component {
     this.setState({artist});
   }
 
+  async loadEvents() {
+    this.setState({isLoadingEvents: true});
+
+    const {artist} = this.state;
+
+    const result = await fetch(
+      'https://rest.bandsintown.com/artists/' +
+        artist.name +
+        '/events?app_id=asd',
+    );
+
+    const artistEvents = (await result.json()) || [];
+
+    this.setState({isLoadingEvents: false, artistEvents});
+  }
+
   render() {
-    const {search, artist} = this.state;
+    const {search, artist, isLoadingEvents, artistEvents: events} = this.state;
     return (
       <div>
         <div className="artist-name">
@@ -33,7 +54,12 @@ export default class extends React.Component {
 
         {artist ? (
           <div className="artist-card">
-            <ArtistCard artist={artist} />
+            <ArtistCard
+              artist={artist}
+              events={events}
+              showEventsClick={this.loadEvents.bind(this)}
+              isLoadingEvents={isLoadingEvents}
+            />
           </div>
         ) : null}
 

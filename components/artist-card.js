@@ -9,7 +9,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 const styles = {
   card: {
-    maxWidth: 345,
+    maxWidth: 600,
     margin: 'auto',
   },
   media: {
@@ -24,11 +24,42 @@ class ArtistCard extends React.Component {
   }
 
   render() {
-    const {classes, artist} = this.props;
+    const {
+      classes,
+      artist,
+      events,
+      showEventsClick,
+      isLoadingEvents,
+    } = this.props;
 
     const FacebookButton = artist.facebook_page_url ? (
-      <Button href={artist.facebook_page_url} target="_blank">Facebook</Button>
+      <Button href={artist.facebook_page_url} target="_blank">
+        Facebook
+      </Button>
     ) : null;
+
+    const ArtistEvents = events.length
+      ? events.map(event => (
+          <CardContent>
+            <Typography gutterBottom variant="headline" component="h2">
+              {event.venue.name} is going to happen in {event.venue.city},{
+                event.venue.country
+              }{' '}
+              on the date {new Date(event.datetime).toLocaleString()}
+            </Typography>
+          </CardContent>
+        ))
+      : null;
+
+    const Events = isLoadingEvents ? (
+      <CardContent>
+        <Typography gutterBottom variant="headline" component="h2">
+          Loading Events
+        </Typography>
+      </CardContent>
+    ) : (
+      ArtistEvents
+    );
 
     return (
       <Card className={classes.card}>
@@ -43,11 +74,12 @@ class ArtistCard extends React.Component {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" color="primary">
+          <Button size="small" color="primary" onClick={showEventsClick}>
             Show events
           </Button>
           {FacebookButton}
         </CardActions>
+        {Events}
       </Card>
     );
   }
