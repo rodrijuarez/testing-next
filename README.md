@@ -46,8 +46,8 @@ After creating an app, it should look something like:
 .
 ├── README.md
 ├── components
-│   ├── head.js
-│   └── nav.js
+│   ├── artist-card.js
+│   └── artist-search.js
 ├── next.config.js
 ├── node_modules
 │   ├── [...]
